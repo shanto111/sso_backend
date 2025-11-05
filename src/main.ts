@@ -8,13 +8,15 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(cookieParser());
   app.enableCors({
-    origin:
-      process.env.FRONTEND_URL ||
-      "http://localhost:3000" ||
-      "https://sso-frontend-livid.vercel.app/",
+    origin: [
+      "http://localhost:3000",
+      "https://sso-frontend-livid.vercel.app",
+      process.env.FRONTEND_URL,
+    ],
     credentials: true,
   });
   await app.listen(process.env.PORT);
   console.log("Backend running on", process.env.PORT);
 }
+
 bootstrap();
