@@ -11,6 +11,7 @@ async function bootstrap() {
     origin: [
       "http://localhost:3000",
       "https://sso-frontend-livid.vercel.app",
+      "https://sso-frontend-h1vp.vercel.app",
       process.env.FRONTEND_URL,
     ],
     credentials: true,
